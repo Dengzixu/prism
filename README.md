@@ -12,4 +12,29 @@
 
 ## 如何构建 / How to build
 
-TODO
+> 本项目最低 JDK 版本为 **17**
+
+### 1. clone 本项目并进入项目目录
+
+```shell
+git@github.com:Dengzixu/prism.git
+cd ./prism/
+```
+
+### 2. 初始化子模块
+
+```shell
+git submodule update --init --recursive
+```
+
+### 3. 运行构建脚本
+
+- windows
+    ```shell
+    .\build.cmd
+    ```
+- 手动构建
+  > 手动构建时务必跳过测试
+  ```shell
+  ./gradlew build -x test
+  ```

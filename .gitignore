@@ -1,9 +1,7 @@
 *.mwb
 
-config/*.yml
-!config/*.example.yml
-!config/application-api.yml
-!config/application-admin-api.yml
+**/src/main/resources/*.yml
+!src/main/resources/*.example.yml
 
 HELP.md
 .gradle

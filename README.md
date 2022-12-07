@@ -1,5 +1,3 @@
-# Prism
-
 <div align="center">
     <h1>
         Prism

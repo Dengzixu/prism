@@ -18,3 +18,7 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+
+prism-setting:
+  room-list:
+    room-id:

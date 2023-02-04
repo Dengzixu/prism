@@ -26,7 +26,7 @@ public class SaveServiceImpl implements SaveService {
     }
 
     @Override
-    public void save(SimpleMessageBody<?> simpleMessageBody) {
+    public void save(Long roomID, SimpleMessageBody<?> simpleMessageBody) {
 
         UserMetadata userMetadata = simpleMessageBody.userMetadata().isPresent() ? simpleMessageBody.userMetadata().get() : null;
         TimestampMetadata timestampMetadata = simpleMessageBody.timestampMetadata().get();
@@ -35,7 +35,7 @@ public class SaveServiceImpl implements SaveService {
             case DANMU_MSG -> {
                 DanmuContent content = (DanmuContent) simpleMessageBody.content();
 
-                saveMapper.saveDanmu(PrismApplication.ROOM_ID,
+                saveMapper.saveDanmu(roomID,
                         userMetadata.uid(), userMetadata.username(),
                         content.text(),
                         timestampMetadata.timestamp());
@@ -44,7 +44,7 @@ public class SaveServiceImpl implements SaveService {
             case INTERACT_WORD -> {
                 InteractWordContent content = (InteractWordContent) simpleMessageBody.content();
 
-                saveMapper.saveInteractWord(PrismApplication.ROOM_ID,
+                saveMapper.saveInteractWord(roomID,
                         userMetadata.uid(), userMetadata.username(),
                         content.msgType(),
                         timestampMetadata.timestamp());
@@ -52,7 +52,7 @@ public class SaveServiceImpl implements SaveService {
             case SEND_GIFT -> {
                 SendGiftContent content = (SendGiftContent) simpleMessageBody.content();
 
-                saveMapper.saveSendGift(PrismApplication.ROOM_ID,
+                saveMapper.saveSendGift(roomID,
                         userMetadata.uid(), userMetadata.username(),
                         content.giftId(), content.giftName(), content.num(),
                         content.coinType(), content.price(), content.discountPrice(),

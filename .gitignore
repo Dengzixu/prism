@@ -3,6 +3,9 @@
 **/src/main/resources/*.yml
 !src/main/resources/*.example.yml
 
+config/*.yml
+!config/*.example.yml
+
 HELP.md
 .gradle
 build/

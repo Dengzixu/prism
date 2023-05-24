@@ -27,14 +27,9 @@ cd ./prism/
 git submodule update --init --recursive
 ```
 
-### 3. 运行构建脚本
+### 3. 构建
 
-- windows
-    ```shell
-    .\build.cmd
-    ```
 - 手动构建
-  > 手动构建时务必跳过测试
   ```shell
-  ./gradlew build -x test
+  ./gradlew build
   ```

@@ -4,6 +4,8 @@ import net.dengzixu.bilvedanmaku.BLiveDanmakuClient;
 import net.dengzixu.bilvedanmaku.enums.Message;
 import net.dengzixu.bilvedanmaku.message.body.SimpleMessageBody;
 import net.dengzixu.bilvedanmaku.message.content.DanmuContent;
+import net.dengzixu.bilvedanmaku.message.content.PopularContent;
+import net.dengzixu.bilvedanmaku.message.content.WatchedChangeContent;
 import net.dengzixu.prism.properties.PrismSetting;
 import net.dengzixu.prism.service.SaveService;
 import org.slf4j.LoggerFactory;
@@ -64,6 +66,9 @@ public class PrismApplication implements CommandLineRunner {
                     Logger.info("[直播间: {}] {} {}", roomID,
                             simpleMessageBody.convertToString(),
                             emoticonContent != null ? emoticonContent.url() : "");
+                } else if (simpleMessageBody.content() instanceof WatchedChangeContent ||
+                        simpleMessageBody.content() instanceof PopularContent) {
+                    // 跳过输出
                 } else {
                     Logger.info("[直播间: {}] {}", roomID, simpleMessageBody.convertToString());
                 }

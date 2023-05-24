@@ -7,7 +7,6 @@ import net.dengzixu.bilvedanmaku.message.content.InteractWordContent;
 import net.dengzixu.bilvedanmaku.message.content.SendGiftContent;
 import net.dengzixu.bilvedanmaku.message.metadata.TimestampMetadata;
 import net.dengzixu.bilvedanmaku.message.metadata.UserMetadata;
-import net.dengzixu.prism.PrismApplication;
 import net.dengzixu.prism.mapper.SaveMapper;
 import net.dengzixu.prism.service.SaveService;
 import org.springframework.beans.factory.annotation.Autowired;

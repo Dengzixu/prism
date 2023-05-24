@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'net.dengzixu'
-version = '0.2-beta'
+version = '0.2.2-beta'
 sourceCompatibility = '17'
 
 configurations {

@@ -20,5 +20,9 @@ public interface SaveMapper {
                       String coinType, int price, int discountPrice,
                       long totalCoin, long timestamp);
 
-    void saveGuardBuy();
+    @InsertProvider(type = SaveMapperProvider.class, method = "saveGuardBuySQL")
+    void saveGuardBuy(long roomID,
+                      long uid, String username,
+                      int guardLevel, int num,
+                      long timestamp);
 }

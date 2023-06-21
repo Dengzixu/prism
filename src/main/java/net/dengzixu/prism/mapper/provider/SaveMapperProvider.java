@@ -45,4 +45,19 @@ public class SaveMapperProvider {
             VALUES("timestamp", "FROM_UNIXTIME(#{timestamp})");
         }}.toString();
     }
+
+    public String saveGuardBuySQL(long roomID,
+                                  long uid, String username,
+                                  int guardLevel, int num,
+                                  long timestamp){
+        return new SQL(){{
+            INSERT_INTO("prism_rec_guard_buy");
+            VALUES("room_id", "#{roomID}");
+            VALUES("uid", "#{uid}");
+            VALUES("username", "#{username}");
+            VALUES("guard_level", "#{guardLevel}");
+            VALUES("num", "#{num}");
+            VALUES("timestamp", "FROM_UNIXTIME(#{timestamp})");
+        }}.toString();
+    }
 }

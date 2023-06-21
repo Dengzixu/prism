@@ -27,7 +27,10 @@ public class SaveServiceImpl implements SaveService {
     @Override
     public void save(Long roomID, SimpleMessageBody<?> simpleMessageBody) {
 
-        UserMetadata userMetadata = simpleMessageBody.userMetadata().isPresent() ? simpleMessageBody.userMetadata().get() : null;
+        UserMetadata userMetadata = simpleMessageBody.userMetadata().isPresent() ?
+                simpleMessageBody.userMetadata().get() :
+                null;
+
         TimestampMetadata timestampMetadata = simpleMessageBody.timestampMetadata().get();
 
         switch (simpleMessageBody.message()) {
@@ -60,6 +63,11 @@ public class SaveServiceImpl implements SaveService {
             }
             case GUARD_BUY -> {
                 GuardBuyContent content = (GuardBuyContent) simpleMessageBody.content();
+
+                saveMapper.saveGuardBuy(roomID,
+                        userMetadata.uid(), userMetadata.username(),
+                        content.guardLevel(), content.guardLevel(),
+                        timestampMetadata.timestamp());
             }
 
             default -> logger.debug("忽略");

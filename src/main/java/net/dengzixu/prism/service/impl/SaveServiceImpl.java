@@ -66,7 +66,7 @@ public class SaveServiceImpl implements SaveService {
 
                 saveMapper.saveGuardBuy(roomID,
                         userMetadata.uid(), userMetadata.username(),
-                        content.guardLevel(), content.guardLevel(),
+                        content.guardLevel(), content.num(),
                         timestampMetadata.timestamp());
             }
 

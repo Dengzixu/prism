@@ -20,5 +20,9 @@ mybatis:
     map-underscore-to-camel-case: true
 
 prism-setting:
+  auth:
+    uid: <UID>
+    sessdata: <sessdata>
   room-list:
     room-id:
+      - <ROOM_ID>

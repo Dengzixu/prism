@@ -6,6 +6,7 @@ import net.dengzixu.bilvedanmaku.message.body.SimpleMessageBody;
 import net.dengzixu.bilvedanmaku.message.content.DanmuContent;
 import net.dengzixu.bilvedanmaku.message.content.PopularContent;
 import net.dengzixu.bilvedanmaku.message.content.WatchedChangeContent;
+import net.dengzixu.bilvedanmaku.profile.BLiveAuthProfile;
 import net.dengzixu.prism.properties.PrismSetting;
 import net.dengzixu.prism.service.SaveService;
 import org.slf4j.LoggerFactory;
@@ -36,12 +37,17 @@ public class PrismApplication implements CommandLineRunner {
     }
 
     @Override
-    public void run(String... args) throws Exception {
+    public void run(String... args) {
 
         prismSetting.roomList().roomId().forEach(roomID -> {
             Logger.info("读取到配置直播间: {}", roomID);
+
+
+            final BLiveAuthProfile bLiveAuthProfile = new BLiveAuthProfile(prismSetting.auth().uid(),
+                    prismSetting.auth().sessdata());
+
             BLiveDanmakuClient bLiveDanmakuClient = BLiveDanmakuClient
-                    .getInstance(roomID)
+                    .getInstance(roomID, bLiveAuthProfile)
                     .addHandler(new Listener(roomID))
                     .connect();
         });

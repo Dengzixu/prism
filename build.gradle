@@ -1,11 +1,11 @@
 plugins {
-    id 'org.springframework.boot' version '2.7.3'
+    id 'org.springframework.boot' version '2.7.15'
     id 'io.spring.dependency-management' version '1.0.13.RELEASE'
     id 'java'
 }
 
 group = 'net.dengzixu'
-version = '0.2.5-beta'
+version = '0.2.6-beta'
 sourceCompatibility = '17'
 
 configurations {
@@ -17,16 +17,16 @@ configurations {
 [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
+
 
 dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 
-    runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly 'com.mysql:mysql-connector-j'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
 
